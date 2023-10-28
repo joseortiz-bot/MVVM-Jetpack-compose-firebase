@@ -1,15 +1,21 @@
 # MVVM-Jetpack-compose-firebase
-App de Android y Firebase (Jetpack + Dagger). Patron MVVM + Clean Architecture, base de datos(Storage), authentication, navegación graph. 
-Para poder usar necesita estar 
-1.Estar registrado en firebase 
-2.Conectar android studio con github, instalar Homebrew https://brew.sh/
-3.Conectar firebase con android studio Tools->Firebase->Authentication->Authenticate using a custom authentication system, debe tener el mismo nombre de la app por ejemplo: com.login.jetpackcompose.
-4.En Firebase agregar Authentication, Firestore Database, Storage, en Rules para Firestore Database, Storage tiene que quedar como:  
+# App de Android y Firebase (Jetpack + Dagger). Patron MVVM + Clean Architecture, base de datos(Storage), authentication, navegación graph. 
 
+### Pasos para configurar Firebase y GitHub
+
+1. Estar registrado en Firebase.
+2. Conectar Android Studio con GitHub.
+3. Conectar Firebase con Android Studio:
+   * Ve a Tools -> Firebase en Android Studio.
+   * Selecciona Authentication y elige "Authenticate using a custom authentication system" con el mismo nombre de la app, por ejemplo, com.login.jetpackcompose.
+4. Agregar los servicios necesarios en Firebase:
+   * Authentication.
+   * Firestore Database.
+   * Storage.
+5. Ajustar las reglas de Firestore Database y Storage en Firebase.
+
+```
 rules_version = '2';
-// Craft rules based on data in your Firestore database
-// allow write: if firestore.get(
-//    /databases/(default)/documents/users/$(request.auth.uid)).data.isAdmin;
 service firebase.storage {
   match /b/{bucket}/o {
     match /{allPaths=**} {
@@ -17,6 +23,7 @@ service firebase.storage {
     }
   }
 }
+```
 5.Despues publicar los cambios.
 
 <img width="395" alt="Captura de pantalla 2023-10-27 a la(s) 20 44 52" src="https://github.com/joseortiz-bot/MVVM-Jetpack-compose-firebase/assets/52723657/b77ffbc4-2184-42b4-8d5e-78ad5111d503">
