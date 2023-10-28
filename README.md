@@ -12,22 +12,13 @@ rules_version = '2';
 //    /databases/(default)/documents/users/$(request.auth.uid)).data.isAdmin;
 service firebase.storage {
   match /b/{bucket}/o {
-
-    // This rule allows anyone with your Storage bucket reference to view, edit,
-    // and delete all data in your Storage bucket. It is useful for getting
-    // started, but it is configured to expire after 30 days because it
-    // leaves your app open to attackers. At that time, all client
-    // requests to your Storage bucket will be denied.
-    //
-    // Make sure to write security rules for your app before that time, or else
-    // all client requests to your Storage bucket will be denied until you Update
-    // your rules
     match /{allPaths=**} {
       allow read, write: if request.auth != null
     }
   }
 }
 5.Despues publicar los cambios.
+
 <img width="395" alt="Captura de pantalla 2023-10-27 a la(s) 20 44 52" src="https://github.com/joseortiz-bot/MVVM-Jetpack-compose-firebase/assets/52723657/b77ffbc4-2184-42b4-8d5e-78ad5111d503">
 <img width="398" alt="Captura de pantalla 2023-10-27 a la(s) 20 46 36" src="https://github.com/joseortiz-bot/MVVM-Jetpack-compose-firebase/assets/52723657/38a46592-810d-4d1f-bc28-f3c4df0c9115">
 <img width="397" alt="Captura de pantalla 2023-10-27 a la(s) 20 47 46" src="https://github.com/joseortiz-bot/MVVM-Jetpack-compose-firebase/assets/52723657/bc452f6d-b983-48f1-a378-93596646b84a">
